@@ -42,6 +42,9 @@ public class UI : MonoBehaviour
         SizeCamera();
 
     }
+
+    const float CAM_HEIGHT_SIZE = 5;
+
     private void SizeCamera()
     {
         float height = 0;
@@ -49,7 +52,9 @@ public class UI : MonoBehaviour
         if (actionsPanel.activeSelf) height += actionsPanel.GetComponent<RectTransform>().rect.height;
 
         Rect screen = GetComponent<RectTransform>().rect;
-        Camera.main.rect = new Rect(0, height / screen.height, 1, 1 - height / screen.height);
+        float normalHei = height / screen.height;
+        Camera.main.rect = new Rect(0, normalHei, 1, 1 - normalHei);
+        Camera.main.orthographicSize = CAM_HEIGHT_SIZE * (1 - normalHei);
 
         worldInput.GetComponent<RectTransform>().sizeDelta = new Vector2(0, screen.height - height);
         worldInput.GetComponent<RectTransform>().position = new Vector3(screen.width / 2, screen.height / 2 + height / 2);
