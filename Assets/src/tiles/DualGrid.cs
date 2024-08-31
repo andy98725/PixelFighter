@@ -15,7 +15,9 @@ public class DualGrid : MonoBehaviour
     };
 
 
-    public Tilemap map, display;
+    private UnitTiles unitTiles;
+
+    public Tilemap terrain, display;
 
     public Tile castleTile;
     public Tile[] castleDisplayTiles;
@@ -45,20 +47,25 @@ public class DualGrid : MonoBehaviour
         };
 
         // Hide base
-        map.GetComponent<TilemapRenderer>().enabled = false;
+        terrain.GetComponent<TilemapRenderer>().enabled = false;
+
+        unitTiles = GetComponent<UnitTiles>();
 
         RefreshDisplay();
     }
-    public void SetCell(Vector3Int coords, Tile tile)
-    {
-        map.SetTile(coords, tile);
-        RefreshTile(coords);
-    }
+    // public void SetCell(Vector3Int coords, TileBase tile)
+    // {
+    //     terrain.SetTile(coords, tile);
+    //     RefreshTile(coords);
+
+    //     if (unitTiles != null) unitTiles.SetCell(coords, tile);
+    // }
 
     protected void RefreshDisplay()
     {
-        for (int x = map.cellBounds.xMin; x < map.cellBounds.xMax; x++)
-            for (int y = map.cellBounds.yMin; y < map.cellBounds.yMax; y++)
+        terrain.CompressBounds();
+        for (int x = terrain.cellBounds.xMin; x < terrain.cellBounds.xMax; x++)
+            for (int y = terrain.cellBounds.yMin; y < terrain.cellBounds.yMax; y++)
             {
                 RefreshTile(new Vector3Int(x, y));
 
@@ -87,7 +94,7 @@ public class DualGrid : MonoBehaviour
     }
     private TileType tileAt(Vector3Int coords)
     {
-        if (map.GetTile(coords) == castleTile)
+        if (terrain.GetTile(coords) == castleTile)
             return Castle;
         else
             return None;

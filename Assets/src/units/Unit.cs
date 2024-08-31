@@ -6,6 +6,8 @@ public class Unit : MonoBehaviour
 {
     public UnitData data;
 
+    public bool locallyControlled;
+
     private List<Action> actions;
 
     // public void Awake()

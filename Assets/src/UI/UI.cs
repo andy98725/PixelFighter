@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
 
     public Unit selectedUnit;
     protected ActionCard selectedAction;
+    public float camSize = 8;
 
     const int SELECTION_NONE = -1, SELECTION_ACTION = 0, SELECTION_DIR = 1, SELECTION_CONFIRM = 2;
     private int selectionMode = SELECTION_ACTION;
@@ -43,7 +44,6 @@ public class UI : MonoBehaviour
 
     }
 
-    const float CAM_HEIGHT_SIZE = 5;
 
     private void SizeCamera()
     {
@@ -54,7 +54,7 @@ public class UI : MonoBehaviour
         Rect screen = GetComponent<RectTransform>().rect;
         float normalHei = height / screen.height;
         Camera.main.rect = new Rect(0, normalHei, 1, 1 - normalHei);
-        Camera.main.orthographicSize = CAM_HEIGHT_SIZE * (1 - normalHei);
+        Camera.main.orthographicSize = camSize * (1 - normalHei);
 
         worldInput.GetComponent<RectTransform>().sizeDelta = new Vector2(0, screen.height - height);
         worldInput.GetComponent<RectTransform>().position = new Vector3(screen.width / 2, screen.height / 2 + height / 2);

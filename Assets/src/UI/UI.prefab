@@ -97,10 +97,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9088837282881752955}
+  - component: {fileID: 7976337318018730177}
   - component: {fileID: 8848065646849985522}
   - component: {fileID: 5427451950784755021}
   - component: {fileID: 3874616176148476083}
-  - component: {fileID: 7976337318018730177}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -130,6 +130,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &7976337318018730177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359668869574764953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf02db6a9a0ae044ebae928dd8a510fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionCardPrefab: {fileID: 6036501916819506553, guid: bc17833b52f698f4cbdb3e594ddb46f8, type: 3}
+  selectedUnit: {fileID: 0}
+  camSize: 8
 --- !u!223 &8848065646849985522
 Canvas:
   m_ObjectHideFlags: 0
@@ -193,20 +208,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7976337318018730177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2359668869574764953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf02db6a9a0ae044ebae928dd8a510fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionCardPrefab: {fileID: 6036501916819506553, guid: bc17833b52f698f4cbdb3e594ddb46f8, type: 3}
-  selectedUnit: {fileID: 0}
 --- !u!1 &6908051733820206419
 GameObject:
   m_ObjectHideFlags: 0
